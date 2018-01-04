@@ -1,8 +1,8 @@
-<Team Name (without word "team")>
-<Member Bubbles>
-<Member Buttercup>
-<Member Blossom>
-pd <pd#>
+Beep Beep Lettuce
+Selina Zou
+Rubin Peci
+Kayli Matsuyoshi
+pd01
 ---------------------
 <Project>
 
