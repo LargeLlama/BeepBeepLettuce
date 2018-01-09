@@ -9,7 +9,7 @@
 <br> Students will be able to view their grades and change the email and password they use to log on, as well as leave comments for their teacher
 <br> Parents will be able to login and see that their child has an 100 in every class, regardless of actual performace.
 
-<br> ----------HOW TO RUN THE PROGRAM----------
+<center><h2>----------HOW TO RUN THE PROGRAM----------</h2></center>
 <br> Not possible yet, but when it is ready to be run, you can simply compile Woo.java and run the file with the following commands
 <ul> <li> javac Woo.java </li> <li> java Woo.java</li></ul>
 <br> You then will pick whether you are a student, teacher, or parent, and enter in your login info, and menu prompts will direct you to the various options you can choose!
