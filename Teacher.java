@@ -1,4 +1,4 @@
-public class Teacher {
+public class Teacher implements Login {
 	
 	//Name related stuff
 	private String _firstName;
