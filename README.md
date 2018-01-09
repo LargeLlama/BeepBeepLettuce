@@ -1,6 +1,6 @@
 <h1>Gradebook</h1>
 <h2> Beep Beep Lettuce </h2>
-<h3> Brought to you by Woobin Peco, Bosso Zou, and Kayli Matsuyoshi </h3>
+<h3> Brought to you by Rubin Peci, Selina Zou and Kayli Matsuyoshi </h3>
 <h4><i>The greatest trio in all the universe</i></h4>
 
 <p> This is our gradebook for our APCS Term 1 final project. We plan for it to run locally and be able to manage a class of students, along with information for each student, such as name, ID, email, password, and, of course, grades! </p>
@@ -11,5 +11,5 @@
 
 <center><h2>----------HOW TO RUN THE PROGRAM----------</h2></center>
 <br> Not possible yet, but when it is ready to be run, you can simply compile Woo.java and run the file with the following commands
-<ul> <li> javac Woo.java </li> <li> java Woo.java</li></ul>
+<ul> <li> $ javac Woo.java </li> <li> $ java Woo </li></ul>
 <br> You then will pick whether you are a student, teacher, or parent, and enter in your login info, and menu prompts will direct you to the various options you can choose!
