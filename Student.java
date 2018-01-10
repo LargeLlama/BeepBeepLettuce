@@ -40,7 +40,7 @@ public class Student implements Login {
 	
 	}
 
-	public Student(String fName, String lName, String maleOrFemale, String user, String pass, int month, int day, int yearborn, int yearGraduate) {
+	public Student(String fName, String lName, String maleOrFemale, String user, String pass, int month, int day, int yearBorn, int yearGraduate) {
 
 		_firstName = fName;
 		_lastName = lName;
@@ -66,8 +66,15 @@ public class Student implements Login {
 		_middleInitial = mInitial;
 	}	
 	
+	public String toString() {
+		if (_middleInitial.length() > 0) 
+			return _firstName + " " + _middleInitial + " " + _lastName;
+		return _firstName + " " + _lastName;
+	}
+
 	public static void main (String[] args) {
-				
+		Student test = new Student();				
+		System.out.println(test);
 	}
 
 }
