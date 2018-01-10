@@ -69,10 +69,28 @@ LESSONS LEARNED
 ==============================================================
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-
-yyyy-mm-dd
+2018-01-04
 --------------------------------------------------------------
-<Member> :: <Thing member did.>
-<Member> :: <Thing member did.>
-<Member> :: <Thing member did.>
+Selina Zou :: started devlog and moved gitignore into repo root
+
+2018-01-05
+--------------------------------------------------------------
+Kayli Matsuyoshi:: started work on UML Diagram
+
+2018-01-08
+--------------------------------------------------------------
+Rubin Peci :: created Student and Teacher classes
+Selina Zou :: edited UML Diagram
+trio :: updated README
+
+2018-01-09
+--------------------------------------------------------------
+Rubin Peci :: edited UML Diagram
+trio: flowchart/todo
+
+2018-01-10
+--------------------------------------------------------------
+Selina Zou :: created Parent class
+Rubin Peci :: created FileTest class
+Kayli Matsuyoshi :: created Assignment class
 ==============================================================
