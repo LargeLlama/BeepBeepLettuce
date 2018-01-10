@@ -18,7 +18,20 @@ public class Parent implements Login{
     private String _lastName;
     
     public Parent() {
+
+	_email = "jdoe@gmail.com";
+	_password = "_password";
+
+	_childFirstName = "Johnnie";
+	_childLastName = "Doe";
+	_childMiddleInitial = "Jr.";
+
+	_childStudentID = "";
 	
+	_firstName = "John";
+	_lastName = "Doe";
+	_middleInitial = "";
+
     }
     
 }//end class
