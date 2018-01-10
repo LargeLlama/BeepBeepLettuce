@@ -1,0 +1,37 @@
+Beep Beep Lettuce: Selina Zou, Rubin Peci, Kayli Matsuyoshi
+APCS1 pd01
+HW64:Checklist Manifesto
+2018-01-10
+
+1. Write login interface
+2. test
+
+write 3 following classes and declare their respective instance variables:
+3. Student class
+4. test
+5. Parent class
+test
+6. Teacher class
+7. test
+
+8. make sure each class implements login interface
+9. test
+
+write following classes and respective instance vars/methods:
+10. Assignment class and 4 subclasses (Test, Project, Quiz, Homework)
+11. test
+12. Searches class
+13. test
+14. Sorts class
+15. test
+16. Stats class
+17. test
+
+18. add methods to Parent class
+19. test
+20. add methods to Student class
+21. test
+22. add methods to Teacher class
+23. test
+24. write in ability to randomly generate data at login (to be discussed)
+25. test
