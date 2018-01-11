@@ -91,6 +91,7 @@ trio: flowchart/todo
 2018-01-10
 --------------------------------------------------------------
 Selina Zou :: created Parent class
-Rubin Peci :: created FileTest class
+Rubin Peci :: created FileTest class, and completed testing
 Kayli Matsuyoshi :: created Assignment class
 ==============================================================
+
