@@ -1,3 +1,4 @@
+   
 public class Stats{
 
     //class Stats takes array of type double and returns operations
@@ -37,11 +38,51 @@ public class Stats{
 	return retMin;	
     }
 
-    
+
+    // //returns array of most repeated element(s) of _array
+    // public static double[] mode(double[] _array){
+
+    // 	double[] retVal = {_array[0]};
+	
+    // 	//if _array has only 1 element, return the element
+    // 	if(_array.length==1)
+    // 	    return retVal;
+	
+    //     Sorts.qsort(_array);//sort array
+    // 	retVal = null;
+    // 	int maxFreq = 0;
+
+    // 	int tempFreq = 0;
+	
+    // 	for(int i = 0; i < _array.length; i++){
+    // 	    if(_array[i]==_array[0])
+    // 		tempFreq++;
+    // 	    else if(tempFreq >= maxFreq)
+    // 		retVal = new
+    // 		retVal.add(_array[i]);
+    // 	    else
+    // 		tempFreq = 0;
+    // 	}
+	
+    // 	return retVal;
+    // }
+
+    //returns population standard deviation of _array elements
+    public static double stDev(double[] _array){
+	double variance = 0;
+	double _mean = mean(_array);
+	for (double x : _array)
+	    variance += (x - _mean)*(x - _mean)/_array.length;
+
+	return Math.sqrt(variance);
+    }
+
+    //returns median
+
+
     
     public static void main(String[] args){
-	double[] a = {22,21,2,8};
-	System.out.println(mean(a));
-	System.out.println(min(a));
+	double[] a = {11,12,22,11,22};
+	System.out.println(stDev(a));
     }
 }
