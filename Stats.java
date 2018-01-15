@@ -77,8 +77,66 @@ public class Stats{
 	return Math.sqrt(variance);
     }
 
-    //returns median
+    //returns median of _array elements
+        public static double median(double[] _array){
+	    Sorts.mergeSort(_array);
+	    
+	    double retMed;
+	    int x = _array.length;
 
+	    //check parity of x 
+	    if(x%2 ==0)
+	        retMed = (_array[x/2] + _array[(x/2)-1])/2;
+	    else
+		retMed = _array[Math.floor(x/2)];
+
+	    return retMed;
+	}
+
+    //returns first quartile of _array elements
+    public static  double q1(double[] _array){
+	Sorts.mergeSort(_array);
+	double retQ1;
+	int x = _array.length;
+
+	//y specifies the number of elements smaller than median
+	int y = Math.floor(x/2);
+
+	if(y%2 ==0)
+	    retQ1 = (_array[y/2] + _array[(y/2)-1])/2;
+	else
+	    retQ1 = _array[Math.floor(y/2)];
+
+	return retQ1;
+    }
+
+       //returns third quartile of _array elements
+    public static  double q1(double[] _array){
+	Sorts.mergeSort(_array);
+	double retQ1;
+	int x = _array.length;
+
+	//y specifies the number of elements smaller than median
+	int y = Math.floor(x/2);
+
+	if(y%2 ==0)
+	    retQ1 = (_array[y/2] + _array[(y/2)-1])/2;
+	else
+	    retQ1 = _array[Math.floor(y/2)];
+
+	return retQ1;
+    }
+
+    public static double iqr(double[] _array){
+	retIQR = q3(_array)-q1(_array);
+
+	return retIQR;
+    }
+	
+
+    //returns array of _array outliers
+    public static  double[] outliers(double[] _array){
+	
 
     
     public static void main(String[] args){
