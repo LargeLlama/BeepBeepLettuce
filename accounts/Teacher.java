@@ -1,4 +1,6 @@
-public class Teacher implements Login {
+package accounts;
+
+public class Teacher {
 	
 	//Name related stuff
 	private String _firstName;
@@ -9,7 +11,7 @@ public class Teacher implements Login {
 	private String _sex; //male or female
 
 	//login info
-	private String _email;
+	private String _user;
 	private String _password;
 
 	public Teacher() {
@@ -20,7 +22,7 @@ public class Teacher implements Login {
 
 		_sex = "male";
 
-		_email = "jdoe@gmail.com";
+		_user = "jdoe@gmail.com";
 		_password = "_password";
 	
 	}
@@ -31,7 +33,7 @@ public class Teacher implements Login {
 		_lastName = lName;
 		_middleInitial  = "";
 		_sex = maleOrFemale;
-		_email = user;
+		_user = user;
 		_password = pass;
 
 	}
@@ -47,11 +49,6 @@ public class Teacher implements Login {
 		if (_middleInitial.length() > 0) 
 			return _firstName + " " + _middleInitial + " " + _lastName;
 		return _firstName + " " + _lastName;
-	}
-
-	public static void main (String[] args) {
-		Teacher brown = new Teacher("Topher","Brown", "male", "tbrown@gmail.com", "password123");
-		System.out.println(brown);
 	}
 		
 }

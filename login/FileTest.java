@@ -1,10 +1,11 @@
 import java.io.*;
+import java.util.ArrayList;
 
 public class FileTest {
 
 	public static void main(String[] args) throws IOException {
 		String line = null;
-		String[] lines = new String[	
+		ArrayList<String> lines = new ArrayList<String>();	
 
 		try {
 			FileReader fr = new FileReader("test.txt"); //file reader object takes parameter as location of the plaintext file in the constructor

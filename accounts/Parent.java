@@ -1,7 +1,9 @@
-public class Parent implements Login{
+package accounts;
+
+public class Parent {
 
     //login info
-    private String _email;
+    private String _user;
     private String _password;
 	
     //Child name related info
@@ -19,14 +21,14 @@ public class Parent implements Login{
     
     public Parent() {
 
-	_email = "jdoe@gmail.com";
+	_user = "jdoe@gmail.com";
 	_password = "_password";
 
 	_childFirstName = "Johnnie";
 	_childLastName = "Doe";
 	_childMiddleInitial = "Jr.";
 
-	_childStudentID = "";
+	_childStudentID = 0;
 	
 	_firstName = "John";
 	_lastName = "Doe";
