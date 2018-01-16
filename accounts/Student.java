@@ -168,12 +168,30 @@ public class Student {
 
 //	public String setLastName(String lastName) {
 //	}
-	public double setGrade(int subject, double newGrade, ArrayList<String> info) {
-		double temp = info.set((subject + 11), newGrade);
-		try {
-			
-		} catch (FileNotFoundException e) {
+	public double setGrade(int subject, double newGrade, ArrayList<String> info) throws IOException {
 
+		double temp = Double.parseDouble(info.set((subject + 11), Double.toString(newGrade)));
+
+		try {
+			File file = new File("accounts/students/" + _user + "/" + _user + ".txt");
+			FileWriter fr = new FileWriter(file);
+			BufferedWriter infoFile = new BufferedWriter(fr);
+
+			infoFile.write("");
+
+			for(int i = 0; i < info.size(); i++) {
+				if (i == 1 && info.get(i).equals("")){
+					infoFile.write("\n");
+				}
+				else {
+					infoFile.write(info.get(i) + "\n");
+				}
+			}
+			infoFile.close();
+
+		} catch (FileNotFoundException e) {
+			System.out.println("FILE NOT FOUND - incorrect path:");
+			System.out.println("accounts/students/" + _user + "/" + _user + ".txt");
 		}
 		return temp;
 	}

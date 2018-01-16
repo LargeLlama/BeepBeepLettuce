@@ -1,3 +1,4 @@
+
 public class Sorts{
     
     //Sorts implements quickSort algorithm
@@ -50,9 +51,9 @@ public class Sorts{
 
 
     public static void sort(double[] arr){
-	int left = 0;
-	int right = arr.length - 1;
-	helperSort(arr, left, right);
+		int left = 0;
+		int right = arr.length - 1;
+		helperSort(arr, left, right);
     }
     
 

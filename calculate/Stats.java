@@ -1,3 +1,4 @@
+
 public class Stats{
 
     //class Stats takes an array of type double

@@ -3,7 +3,7 @@ Rubin
 Peci
 male
 rpeci
-memes
+87.0
 0987
 11
 12
@@ -13,7 +13,7 @@ memes
 95
 93
 90
-100
+85.0
 javallone
 bsterr
 vgreez

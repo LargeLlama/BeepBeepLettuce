@@ -81,6 +81,40 @@ public class Teacher {
 		_middleInitial = mInitial;
 	}
 */
+	public ArrayList<String> getStudents() {
+		return _students;
+	}
+
+	public double changeGrade(double newGrade, String studentName, ArrayList<String> info) throws IOException {
+		
+		int location = info.indexOf(studentName);
+		double temp = Double.parseDouble(info.set(location + 1, Double.toString(newGrade)));
+
+		try {
+			File file = new File("accounts/teachers/" + _user + "/" + _user + ".txt");
+			FileWriter fr = new FileWriter(file);
+			BufferedWriter updatedFile = new BufferedWriter(fr);
+
+			updatedFile.write("");
+
+			for (int i = 0; i < info.size(); i ++) {
+				if (i == 1 && info.get(i).equals("")) {
+					updatedFile.write("\n");
+				}
+				else {
+					updatedFile.write(info.get(i) + "\n");
+				}
+			}
+
+			updatedFile.close();
+
+		} catch (FileNotFoundException e) {
+			System.out.println("INVALID PATH");
+		}
+
+		return temp;
+
+	}
 	public String toString() {
 		if (_middleInitial.length() > 0) 
 			return _firstName + " " + _middleInitial + " " + _lastName;

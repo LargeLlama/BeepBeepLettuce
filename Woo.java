@@ -3,6 +3,7 @@ import java.util.Scanner;
 import java.io.*;
 import java.util.ArrayList;
 import accounts.*;
+import calculate.*;
 
 public class Woo {
 
@@ -133,7 +134,7 @@ public class Woo {
 		    scanner.nextLine();
 
 		    System.out.println("Welcome " + info.get(0) + "! What would you like to do?");
-		    System.out.println("1. View Grades\n2. View Assignments\n3. Logout\n 4.TEST SETNAME");
+		    System.out.println("1. View Grades\n2. View Assignments\n3. Logout\n");
 		    choice = scanner.nextLine();
 						
 		} else if (choice.equals("2")) {
@@ -165,7 +166,8 @@ public class Woo {
 
 	    }
 	}
-	
+
+//~~~~~TEACHER CODE~~~~~	
 	if(code == 2) {
 				
 	    Login login = new Login("login/teachers/teacherUsernames.txt");
@@ -225,70 +227,128 @@ public class Woo {
 	    }
 
 	    Teacher loggedIn = new Teacher(info);
+		int subject = Integer.parseInt(info.get(6));
 	    System.out.println("Welcome " + info.get(0) + "! What would you like to do?");
-	    System.out.println("\n1. Change a student's grade\n2. Assign new assignment\n3. Grade an assignment\n4. Change Student info\n5. Logout\n");
+	    System.out.println("\n1. Change a student's grade\n2. Assign new assignment\n3. Grade an assignment\n4. See stats for your class\n5. Logout\n");
 
 	    String choice = scanner.nextLine();
 			
 	    while(true) {
-		if (choice.equals("1")) {
-		    System.out.println("Here are all of your students");
-		    System.out.println("Type the number corressponding to their username to change their grade, or type EXIT to go back to the menu");
-					
-		    for (int i = 7; i < info.size(); i++) {	
-			System.out.println( (i - 6) + ". "  + info.get(i));
-		    }
+			if (choice.equals("1")) {
+				System.out.println("Here are all of your students");
+				System.out.println("Type the number corressponding to their username to change their grade, or type EXIT to go back to the menu");
+				counter = 1;
 
-		    choice = scanner.nextLine();
+				for (int i = 7; i < info.size(); i+= 2) {	
+					System.out.println( counter + ". "  + info.get(i));
+					counter ++;
+				}
 
-		    if (isNumeric(choice)) {
-			ArrayList<String> studentInfo = new ArrayList<String>();
+				choice = scanner.nextLine();
 
-			int studentChosen = Integer.parseInt(choice);
-			String studentUser = info.get(studentChosen + 6);
+				if (isNumeric(choice)) {
+				ArrayList<String> studentInfo = new ArrayList<String>();
 
-			try {
-			    File file = new File("accounts/students/" + studentUser + "/" + studentUser + ".txt");
-			    FileReader fr = new FileReader(file);
-			    BufferedReader student = new BufferedReader(fr);	
+				int studentChosen = Integer.parseInt(choice);
+				String studentUser = info.get(studentChosen + 6);
 
-			    String line = null;
-						
-			    while ((line = student.readLine()) != null) {
-				studentInfo.add(line);
-			    }
+				try {
+					File file = new File("accounts/students/" + studentUser + "/" + studentUser + ".txt");
+					FileReader fr = new FileReader(file);
+					BufferedReader student = new BufferedReader(fr);	
 
-					
-			} catch (FileNotFoundException e) {
-			    System.out.println("FILE NOT FOUND ERROR");
-			}
-			Student chosenStudent = new Student(studentInfo);
-			System.out.println("Here is your grade for " + studentInfo.get(0));
-			double oldGrade = studentInfo.get(Integer.parseInt(info.get(6)) + 11);
-			System.out.println(oldGrade);
-
-			System.out.println("What would you like to change it to?");
-			String grade = scanner.nextLine();
-
-			while(true) {
-			    try {
-				double newGrade = Double.parseDouble(grade);
-				break;
-			    } catch (Exception e) {
-				System.out.println("Invalid input! Try again!");
-				grade = scanner.nextLine();
-			    }
-			}
-			System.out.println("Changing " + studentInfo.get(0) + "'s grade from " + oldGrade + " to " + newGrade);
-
-
+					String line = null;
 							
-		    }
-		    break;
-		}
-	    }
+					while ((line = student.readLine()) != null) {
+					studentInfo.add(line);
+					}
 
-	}
+						
+				} catch (FileNotFoundException e) {
+					System.out.println("FILE NOT FOUND ERROR");
+				}
+
+				Student chosenStudent = new Student(studentInfo);
+				System.out.println("Here is your grade for " + studentInfo.get(0));
+				
+				double oldGrade = Double.parseDouble(studentInfo.get((Integer.parseInt(info.get(6)) + 11)));
+				System.out.println(oldGrade);
+
+				System.out.println("What would you like to change it to?");
+				String grade = scanner.nextLine();
+
+				while(true) {
+					try {
+						double newGrade = Double.parseDouble(grade);
+						System.out.println("Changing " + studentInfo.get(0) + "'s grade from " + oldGrade + " to " + newGrade);
+						chosenStudent.setGrade(Integer.parseInt(info.get(6)), newGrade, studentInfo);
+						loggedIn.changeGrade(newGrade, studentInfo.get(4), info);
+						break;
+					} catch (Exception e) {
+						System.out.println("Invalid input! Try again!");
+						grade = scanner.nextLine();
+					}
+				}
+				System.out.println("Success!\nReturning to main menu...\n");
+			  }
+			} else if (choice.equals("2")) {
+				System.out.println("FEATURE UNDER DEVELOPMENT!");
+			}
+			else if (choice.equals("3")) {
+				System.out.println("FEATURE UNDER DEVELOPMENT!");
+			}
+			else if (choice.equals("4")) {
+				System.out.println("Here are all of your students and their grades");
+
+				ArrayList<Double> studentGrades = new ArrayList<Double>();
+				double[] grades = new double[(int)Math.floor((info.size() - 6) / 2)];
+
+				ArrayList<String> students = new ArrayList<String>();
+
+				for (int i = 0; i < loggedIn.getStudents().size(); i++) {
+					students.add(loggedIn.getStudents().get(i));
+				}
+
+				for (int i = 1; i < students.size(); i += 2) {
+					studentGrades.add(Double.parseDouble(students.get(i)));
+				}
+	
+				for (int i = 0; i < grades.length; i++) {
+					grades[i] = studentGrades.get(i);
+				}
+				ArrayList<String> studentNames = new ArrayList<String>();
+
+				for (int i = 0; i < students.size(); i += 2) {
+					studentNames.add(students.get(i));
+				}
+
+				for (int i = 0; i < grades.length; i++) {
+					System.out.println(studentNames.get(i) + ": " + grades[i]);
+				
+				}
+
+				System.out.println("What would you like to calculate?");
+				System.out.println("1. Mean\n2. Max\n3.Minimum\n4. Standard Deviation\n5. Median\n6. 1st Quartile\n7. 3rd Quartile\n8. IQR\n9. Outliers\n10. Histogram");
+
+
+
+			}
+			else if (choice.equals("5")) {
+				System.out.println("Bye Bye " + info.get(0));
+				return;
+			}
+			else {
+				System.out.println("Invalid input! Try again");
+			}
+			System.out.println("Welcome " + info.get(0) + "! What would you like to do?");
+	    	System.out.println("\n1. Change a student's grade\n2. Assign new assignment\n3. Grade an assignment\n4. Check stats for grades\n5. Logout\n");
+
+	    	choice = scanner.nextLine();
+
+			}
+		}
+
+	
 
 	if(code == 3) {
 				
