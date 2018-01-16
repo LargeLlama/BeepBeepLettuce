@@ -51,7 +51,7 @@ public class Stats{
 
     //returns median of _array elements
     public static double median(double[] _array){
-	// Sorts.mergeSort(_array);
+	Sorts.sort(_array);
 	    
 	double retMed;
 
@@ -70,7 +70,7 @@ public class Stats{
 
     //returns first quartile of _array elements
     public static double q1(double[] _array){
-	//Sorts.mergeSort(_array);
+	Sorts.sort(_array);
 	double retQ1;
 	int x = _array.length;
 
@@ -88,7 +88,7 @@ public class Stats{
 
     //returns third quartile of _array elements
     public static double q3(double[] _array){
-	//Sorts.mergeSort(_array);
+	Sorts.sort(_array);
 	double retQ3;
 	int x = _array.length;
 
@@ -145,7 +145,7 @@ public class Stats{
     //returns String representation of the histogram
     // of _array elements
     public static String histogram(double[] _array){
-	//Sorts.mergeSort(_array);
+	Sorts.sort(_array);
 	String retStr = "";
 
 	//outer loop iterates through non-repeated elements
