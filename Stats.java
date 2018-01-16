@@ -94,36 +94,37 @@ public class Stats{
 	}
 
     //returns first quartile of _array elements
-    public static  double q1(double[] _array){
-	//Sorts.mergeSort(_array);
+    public static double q1(double[] _array){
+		//Sorts.mergeSort(_array);
 	double retQ1;
 	int x = _array.length;
 
-	//y specifies the number of elements smaller than median
-	int y = (x-1)/2;
+	//y specifies the number of elements less than median
+	int y = x/2;
 
-	if(y%2 ==0)
-	    retQ1 = (_array[y/2] + _array[(y/2)-1])/2;
-	else
-	    retQ1 = _array[(y-1)/2];
+	double[] temp = new double[y];
+	for(int i=0;i<y;i++)
+	    temp[i]=_array[i];
 
+	retQ1 = median(temp);
 	return retQ1;
     }
+    
 
        //returns third quartile of _array elements
-    public static  double q3(double[] _array){
+    public static double q3(double[] _array){
 	//Sorts.mergeSort(_array);
 	double retQ3;
 	int x = _array.length;
 
 	//y specifies the number of elements greater than median
-	int y = (x-1)/2;
+	int y = x/2;
 
-	if(y%2 ==0)
-	    retQ3 = (_array[x-(y/2)] + _array[x-(y/2)+1])/2;
-	else
-	    retQ3 = _array[x-((y-1)/2)];
+	double[] temp = new double[y];
+	for(int i=x-y;i<x;i++)
+	    temp[i+y-x]=_array[i];
 
+	retQ3 = median(temp);
 	return retQ3;
     }
 
@@ -135,10 +136,15 @@ public class Stats{
     }
 	
 
-    // //returns array of _array outliers
-    // public static  double[] outliers(double[] _array){
-	
-    // }
+    //returns array of _array outliers
+    public static double[] outliers(double[] _array){
+	double[] retOut
+	    for(
+    }
+
+
+	public String toString(){
+	    return this.
 
     
     public static void main(String[] args){
