@@ -1,10 +1,12 @@
-   
 public class Stats{
 
-    //class Stats takes array of type double and returns operations
-    //arrays must have at least one element
+    //class Stats takes an array of type double
+    //since we are using Stats in the context of a gradebook,
+    //it is assumed that all array elements will be positive,
+    //and only arrays of non-trivial sizes will be provided.
+    //Stats will return the results of various statistical calculations.
+    
 
-    //takes array _array of type double
     //returns mean of elements in _array
     public static double mean(double[] _array){
 	double sumArray = 0;
@@ -15,7 +17,6 @@ public class Stats{
     }
     
 		
-    //takes array _array of type double
     //returns largest element of _array
     public static double max(double[] _array){
 	double retMax = 0;
@@ -27,7 +28,6 @@ public class Stats{
     }
 
     
-    //takes array _array of type double
     //returns smallest element of _array
     public static double min(double[] _array){
 	double retMin = _array[0];
@@ -38,34 +38,6 @@ public class Stats{
 	return retMin;	
     }
 
-
-    // //returns array of most repeated element(s) of _array
-    // public static double[] mode(double[] _array){
-
-    // 	double[] retVal = {_array[0]};
-	
-    // 	//if _array has only 1 element, return the element
-    // 	if(_array.length==1)
-    // 	    return retVal;
-	
-    //     Sorts.qsort(_array);//sort array
-    // 	retVal = null;
-    // 	int maxFreq = 0;
-
-    // 	int tempFreq = 0;
-	
-    // 	for(int i = 0; i < _array.length; i++){
-    // 	    if(_array[i]==_array[0])
-    // 		tempFreq++;
-    // 	    else if(tempFreq >= maxFreq)
-    // 		retVal = new
-    // 		retVal.add(_array[i]);
-    // 	    else
-    // 		tempFreq = 0;
-    // 	}
-	
-    // 	return retVal;
-    // }
 
     //returns population standard deviation of _array elements
     public static double stDev(double[] _array){
@@ -78,24 +50,27 @@ public class Stats{
     }
 
     //returns median of _array elements
-        public static double median(double[] _array){
-	    // Sorts.mergeSort(_array);
+    public static double median(double[] _array){
+	// Sorts.mergeSort(_array);
 	    
-	    double retMed;
-	    int x = _array.length;
+	double retMed;
 
-	    //check parity of x 
-	    if(x%2 ==0)
-	        retMed = (_array[x/2] + _array[(x/2)-1])/2;
-	    else
-		retMed = _array[(x-1)/2];
+	//x stores length of _array
+	int x = _array.length;
 
-	    return retMed;
-	}
+	//check parity of x
+	//parity determines where median lies
+	if(x%2 ==0)
+	    retMed = (_array[x/2] + _array[(x/2)-1])/2;
+	else
+	    retMed = _array[(x-1)/2];
+
+	return retMed;
+    }
 
     //returns first quartile of _array elements
     public static double q1(double[] _array){
-		//Sorts.mergeSort(_array);
+	//Sorts.mergeSort(_array);
 	double retQ1;
 	int x = _array.length;
 
@@ -111,7 +86,7 @@ public class Stats{
     }
     
 
-       //returns third quartile of _array elements
+    //returns third quartile of _array elements
     public static double q3(double[] _array){
 	//Sorts.mergeSort(_array);
 	double retQ3;
@@ -129,29 +104,66 @@ public class Stats{
     }
 
     
-
+    //returns the distance between the first and third quartiles
     public static double iqr(double[] _array){
 	double retIQR = q3(_array)-q1(_array);
 	return retIQR;
     }
 	
 
-    //returns array of _array outliers
+    //returns array of outliers in _array 
     public static double[] outliers(double[] _array){
-	double[] retOut
-	    for(
+	double[] retOut;//array to store outlier values
+	int size = 0;//size of retOut
+	
+	double bounds = 1.5*iqr(_array);//max dist from low or high allowed
+	double low = q1(_array);
+	double high = q3(_array);
+
+	//establish size of retOut by iterating through _array,
+	// counting number of outliers
+	for(double a : _array){
+	    if(a > high + bounds || a < low - bounds)
+		size++;
+	}
+	retOut = new double[size];
+
+	//copy all outlier values into retOut
+	int counter = 0;
+	for(double b : _array){
+	    if(b > high + bounds || b < low - bounds){
+		retOut[counter] = b;
+		counter++;
+	    }
+	}
+
+	//return array of outliers
+	return retOut;	
     }
-
-
-	public String toString(){
-	    return this.
 
     
-    public static void main(String[] args){
-	double[] a = {9,10,11,15,19,78};
-	System.out.println(q1(a));
-	System.out.println(median(a));
-	System.out.println(q3(a));
-	System.out.println(iqr(a));
+    //returns String representation of the histogram
+    // of _array elements
+    public static String histogram(double[] _array){
+	//Sorts.mergeSort(_array);
+	String retStr = "";
+
+	//outer loop iterates through non-repeated elements
+	for(int i = 0; i < _array.length; i++){
+	    retStr+= _array[i] + ": " + "*";
+
+	    //inner loop iterates through repeated elements
+	    for(int x = i; x < _array.length - 1 &&
+		    _array[x] == _array[x+1]; x++){
+		retStr+= " *";
+		i++;
+	    }
+	    retStr+= "\n";
+	}
+	
+	return retStr;
     }
-}
+
+    
+}//end class
+
