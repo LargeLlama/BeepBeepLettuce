@@ -1,10 +1,11 @@
+//package assignment;
 /***
- *  Project Class
+ *  Test Class
  *  TYPE: Subclass
- *  - Project extends Assignment
+ *  - Test extends Assignment
  ***/
 
-public class Project extends Assignment {
+public class Test extends Assignment {
 
     // INSTANCE VARIABLES
 
@@ -12,7 +13,7 @@ public class Project extends Assignment {
 
     // DEFAULT CONSTRUCTOR
 
-    public Project() {
+    public Test() {
 
         super();
 
@@ -20,19 +21,19 @@ public class Project extends Assignment {
 
     // OVERLOADED CONSTRUCTORS
 
-    public Project( String newName ) {
+    public Test( String newName ) {
 
         super( newName );
 
     }
 
-    public Project( float newGrade ) {
+    public Test( float newGrade ) {
 
         super( newGrade );
 
     }
 
-    public Project( String newName, float newGrade ) {
+    public Test( String newName, float newGrade ) {
 
         super( newName, newGrade );
 
@@ -42,5 +43,5 @@ public class Project extends Assignment {
 
     // No new methods
 
-} // end of class Project
+} // end of class Assignment
 	

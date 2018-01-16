@@ -1,3 +1,5 @@
+//package assignment;
+
 /***
  *  Assignment Class
  *  TYPE: Superclass
@@ -13,7 +15,7 @@ public class Assignment {
 
     public String name; // name of the assignment
     public String status; // "incomplete" or "complete"
-    public float grade; // decimal value of the grade given for assignment
+    public double grade; // decimal value of the grade given for assignment
 
     // DEFAULT CONSTRUCTOR
 
@@ -35,7 +37,7 @@ public class Assignment {
 
     }
 
-    public Assignment( float newGrade ) {
+    public Assignment( double newGrade ) {
 
 	name = "New Assignment";
 	status = "incomplete";
@@ -43,7 +45,7 @@ public class Assignment {
 
     }
 
-    public Assignment( String newName, float newGrade ) {
+    public Assignment( String newName, double newGrade ) {
 
 	name = newName;
 	status = "incomplete";
@@ -69,21 +71,21 @@ public class Assignment {
     }
 
     // setName( String )
-    public static void setName( String inputName ) {
+    public void setName( String inputName ) {
 
 	name = inputName;
 
     }
 
-    // setGrade( float )
-    public static void setGrade( float inputGrade ) {
+    // setGrade( double )
+    public void setGrade( double inputGrade ) {
 
         grade = inputGrade;
 
     }
 
     // setStatus( String )
-    public static void setGrade( String inputStatus ) {
+    public void setGrade( String inputStatus ) {
 
         status = inputStatus;
 

@@ -136,9 +136,12 @@ public class Student {
 		String temp = _firstName;
 		String line = null;
 		ArrayList<String> oldInfo = new ArrayList<String>();
-
+		
+ 		System.out.println(new File("accounts/students/" + _user + "/" + _user + ".txt").isFile());
+		System.out.println("accounts/students/" + _user + "/" + _user + ".txt");
+		//NOT WORKING
 		try {
-			File file = new File("students/" + _user + "/" + _user + ".txt");
+			File file = new File("accounts/students/" + _user + "/" + _user + ".txt");
 			FileReader fr = new FileReader(file);
 			BufferedReader br = new BufferedReader(fr);
 
@@ -165,7 +168,15 @@ public class Student {
 
 //	public String setLastName(String lastName) {
 //	}
+	public double setGrade(int subject, double newGrade, ArrayList<String> info) {
+		double temp = info.set((subject + 11), newGrade);
+		try {
+			
+		} catch (FileNotFoundException e) {
 
+		}
+		return temp;
+	}
 	public double getScienceGrade() {
 		return _scienceGrade;
 	}
@@ -186,63 +197,6 @@ public class Student {
 		return _computerScienceGrade;
 	}
 
-	public double setScienceGrade(double grade) throws IOException {
-
-		double temp = _scienceGrade;
-		String line = null;
-		ArrayList<String> oldInfo = new ArrayList<String>();
-
-		try {
-			File file = new File("students/" + _user + "/" + _user + ".txt");
-			FileReader fr = new FileReader(file);
-			BufferedReader br = new BufferedReader(fr);
-
-			while((line = br.readLine()) != null) {
-				oldInfo.add(line);
-			}
-			
-			String newGrade = Double.toString(grade);
-
-			oldInfo.set(11, newGrade);
-
-			FileWriter writer = new FileWriter("students/" + _user + "/" + _user + ".txt");
-			
-			for (int i = 0; i < oldInfo.size(); i++) {
-				writer.write(oldInfo.get(i));
-			}
-
-		} catch (FileNotFoundException e) {
-
-			System.out.println("FILE NOT FOUND ERROR");
-		}
-
-		_scienceGrade = grade;
-		return temp;
-	}
-
-	public double setMathGrade(double grade){
-		double temp = _mathGrade;
-		_mathGrade = grade;
-		return temp;
-	}
-
-	public double setHistoryGrade(double grade) {
-		double temp = _historyGrade;
-		_historyGrade = grade;
-		return temp;
-	}
-
-	public double setEnglishGrade(double grade) {
-		double temp = _englishGrade;
-		_englishGrade = grade;
-		return temp;
-	}
-
-	public double setComputerScienceGrade(double grade) {
-		double temp = _computerScienceGrade;
-		_computerScienceGrade = grade;
-		return temp;
-	}
 	
 	public void setTeachers(ArrayList<String> teachers) {
 		_scienceTeacher = teachers.get(0);

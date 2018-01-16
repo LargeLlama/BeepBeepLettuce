@@ -6,6 +6,19 @@ import accounts.*;
 
 public class Woo {
 
+	public static boolean isNumeric(String str) {  
+	  try {  
+			double d = Double.parseDouble(str);  
+
+	  } catch(NumberFormatException e){  
+		  
+		  return false;  
+
+	  }  
+	  
+	  return true;  
+	}
+
 	public static int mainMenu(Scanner scanner) {
 		
 		int code = -1;		
@@ -104,6 +117,7 @@ public class Woo {
 				String choice = scanner.nextLine();
 
 				while (true) {
+
 					if (choice.equals("1")) {
 
 						System.out.println("\nHere are your grades!\n");
@@ -119,7 +133,7 @@ public class Woo {
 						scanner.nextLine();
 
 						System.out.println("Welcome " + info.get(0) + "! What would you like to do?");
-						System.out.println("1. View Grades\n2. View Assignments\n3. Logout");
+						System.out.println("1. View Grades\n2. View Assignments\n3. Logout\n 4.TEST SETNAME");
 						choice = scanner.nextLine();
 						
 					} else if (choice.equals("2")) {
@@ -135,6 +149,14 @@ public class Woo {
 					} else if (choice.equals("3")) {
 						System.out.println("Bye Bye " + info.get(0));
 						break;
+
+					} else if (choice.equals("4")) {
+						System.out.println(loggedIn.setFirstName("Test"));
+					
+						System.out.println("Welcome " + info.get(0) + "! What would you like to do?");
+						System.out.println("1. View Grades\n2. View Assignments\n3. Logout");
+						choice = scanner.nextLine();
+
 					} else {
 						System.out.println("INVALID INPUT! Try again!");
 						System.out.println("1. View Grades\n2. View Assignments\n3. Logout");
@@ -142,6 +164,7 @@ public class Woo {
 					}
 
 				}
+		}
 	
 		if(code == 2) {
 				
@@ -183,8 +206,89 @@ public class Woo {
 			}
 			
 			System.out.println("Login Successful!");
+			ArrayList<String> info = new ArrayList<String>();
+
+			try {
+				File file = new File("accounts/teachers/" + user + "/" + user + ".txt");
+				FileReader fr = new FileReader(file);
+				BufferedReader teacher = new BufferedReader(fr);	
+
+				String line = null;
+				
+				while ((line = teacher.readLine()) != null) {
+					info.add(line);
+				}
+			 	
 			
+			} catch (FileNotFoundException e) {
+				System.out.println("FILE NOT FOUND ERROR");
 			}
+
+			Teacher loggedIn = new Teacher(info);
+			System.out.println("Welcome " + info.get(0) + "! What would you like to do?");
+			System.out.println("\n1. Change a student's grade\n2. Assign new assignment\n3. Grade an assignment\n4. Change Student info\n5. Logout\n");
+
+			String choice = scanner.nextLine();
+			
+			while(true) {
+				if (choice.equals("1")) {
+					System.out.println("Here are all of your students");
+					System.out.println("Type the number corressponding to their username to change their grade, or type EXIT to go back to the menu");
+					
+					for (int i = 7; i < info.size(); i++) {	
+						System.out.println( (i - 6) + ". "  + info.get(i));
+					}
+
+					choice = scanner.nextLine();
+
+					if (isNumeric(choice)) {
+						ArrayList<String> studentInfo = new ArrayList<String>();
+
+						int studentChosen = Integer.parseInt(choice);
+						String studentUser = info.get(studentChosen + 6);
+
+						try {
+							File file = new File("accounts/students/" + studentUser + "/" + studentUser + ".txt");
+							FileReader fr = new FileReader(file);
+							BufferedReader student = new BufferedReader(fr);	
+
+							String line = null;
+						
+							while ((line = student.readLine()) != null) {
+								studentInfo.add(line);
+							}
+
+					
+						} catch (FileNotFoundException e) {
+							System.out.println("FILE NOT FOUND ERROR");
+						}
+							Student chosenStudent = new Student(studentInfo);
+							System.out.println("Here is your grade for " + studentInfo.get(0));
+							double oldGrade = studentInfo.get(Integer.parseInt(info.get(6)) + 11)
+							System.out.println(oldGrade);
+
+							System.out.println("What would you like to change it to?");
+							String grade = scanner.nextLine();
+
+							while(true) {
+								try {
+									double newGrade = Double.parseDouble(grade);
+									break;
+								} catch (Exception e) {
+									System.out.println("Invalid input! Try again!");
+									grade = scanner.nextLine();
+								}
+							}
+							System.out.println("Changing " + studentInfo.get(0) + "'s grade from " + oldGrade + " to " + newGrade);
+
+
+							
+					}
+					break;
+				}
+			}
+
+		}
 
 		if(code == 3) {
 				
@@ -227,9 +331,11 @@ public class Woo {
 			}
 			
 			System.out.println("Login Successful!");
-			
-			}
-
-	  }
-	
+		}
+	}
 }
+		
+	  
+   	
+
+

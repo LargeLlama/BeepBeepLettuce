@@ -1,10 +1,12 @@
+//package assignment;
+
 /***
- *  Homework Class
+ *  Project Class
  *  TYPE: Subclass
- *  - Homework extends Assignment
+ *  - Project extends Assignment
  ***/
 
-public class Homework extends Assignment {
+public class Project extends Assignment {
 
     // INSTANCE VARIABLES
 
@@ -12,7 +14,7 @@ public class Homework extends Assignment {
 
     // DEFAULT CONSTRUCTOR
 
-    public Homework() {
+    public Project() {
 
         super();
 
@@ -20,19 +22,19 @@ public class Homework extends Assignment {
 
     // OVERLOADED CONSTRUCTORS
 
-    public Homework( String newName ) {
+    public Project( String newName ) {
 
         super( newName );
 
     }
 
-    public Homework( float newGrade ) {
+    public Project( double newGrade ) {
 
         super( newGrade );
 
     }
 
-    public Homework( String newName, float newGrade ) {
+    public Project( String newName, double newGrade ) {
 
         super( newName, newGrade );
 
@@ -42,5 +44,5 @@ public class Homework extends Assignment {
 
     // No new methods
 
-} // end of class Homework
+} // end of class Project
 	

@@ -1,10 +1,11 @@
+//package assignment;
 /***
- *  Quiz Class
+ *  Homework Class
  *  TYPE: Subclass
- *  - Quiz extends Assignment
+ *  - Homework extends Assignment
  ***/
 
-public class Quiz extends Assignment {
+public class Homework extends Assignment {
 
     // INSTANCE VARIABLES
 
@@ -12,7 +13,7 @@ public class Quiz extends Assignment {
 
     // DEFAULT CONSTRUCTOR
 
-    public Quiz() {
+    public Homework() {
 
         super();
 
@@ -20,19 +21,19 @@ public class Quiz extends Assignment {
 
     // OVERLOADED CONSTRUCTORS
 
-    public Quiz( String newName ) {
+    public Homework( String newName ) {
 
         super( newName );
 
     }
 
-    public Quiz( float newGrade ) {
+    public Homework( double newGrade ) {
 
         super( newGrade );
 
     }
 
-    public Quiz( String newName, float newGrade ) {
+    public Homework( String newName, double newGrade ) {
 
         super( newName, newGrade );
 
@@ -42,5 +43,5 @@ public class Quiz extends Assignment {
 
     // No new methods
 
-} // end of class Quiz
+} // end of class Homework
 	
