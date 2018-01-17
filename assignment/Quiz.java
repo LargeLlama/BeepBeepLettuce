@@ -1,4 +1,4 @@
-//package assignment;
+package assignment;
 /***
  *  Quiz Class
  *  TYPE: Subclass

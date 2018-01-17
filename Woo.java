@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import accounts.*;
 import calculate.*;
+import assignment.*;
 
 public class Woo {
 
@@ -427,6 +428,7 @@ public class Woo {
 				    else{
 					bool = true;
 					System.out.println("Invalid input, type a number 1 through 10!");
+					statChoice = scanner.nextLine();
 				    }
 				}
 				    

@@ -1,4 +1,4 @@
-//package assignment;
+package assignment;
 /***
  *  Homework Class
  *  TYPE: Subclass

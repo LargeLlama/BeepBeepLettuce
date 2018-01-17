@@ -8,4 +8,4 @@ notpassword
 rpeci
 100.0
 szou
-100.0
+0.0

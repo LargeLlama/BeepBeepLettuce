@@ -1,4 +1,4 @@
-//package assignment;
+package assignment;
 
 /***
  *  Assignment Class
