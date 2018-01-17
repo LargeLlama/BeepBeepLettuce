@@ -298,7 +298,70 @@ public class Woo {
 				System.out.println("Success!\nReturning to main menu...\n");
 			  }
 			} else if (choice.equals("2")) {
-				System.out.println("FEATURE UNDER DEVELOPMENT!");
+				
+			    System.out.println("What type of assignment are you creating?");
+			    System.out.println("\n1. Test\n2. Quiz\n3. Project\n4. Homework\n5. Essay\n");
+			    choice = scanner.nextLine();
+			    
+			    if (choice.equals("1")) {
+				System.out.println( "yay" );
+				Test input = new Test();
+
+				System.out.println("What is the name of the assignment");
+				String inputName = scanner.nextLine();
+				input.setName( inputName );
+				PrintWriter writer = new PrintWriter(inputName, "UTF-8");
+				writer.println("Assignment Type: Test");
+				writer.println("Assignment Name: " + inputName);
+				writer.close();
+			        //inputName.txt.renameTo(new File("/assignments/" + inputName + ".txt"));
+			    }
+			    else if (choice.equals("2")) {
+			        Quiz input = new Quiz();
+
+				System.out.println("What is the name of the assignment");
+				String inputName = scanner.nextLine();
+				input.setName( inputName );
+				PrintWriter writer = new PrintWriter(inputName, "UTF-8");
+				writer.println("Assignment Type: Quiz");
+				writer.println("Assignment Name: " + inputName);
+				writer.close();
+			    }
+			    else if (choice.equals("3")) {
+			        Project input = new Project();
+
+				System.out.println("What is the name of the assignment");
+				String inputName = scanner.nextLine();
+				input.setName( inputName );
+				PrintWriter writer = new PrintWriter(inputName, "UTF-8");
+				writer.println("Assignment Type: Project");
+				writer.println("Assignment Name: " + inputName);
+				writer.close();
+			    }
+			    else if (choice.equals("4")) {
+			        Homework input = new Homework();
+
+				System.out.println("What is the name of the assignment");
+				String inputName = scanner.nextLine();
+				input.setName( inputName );
+				PrintWriter writer = new PrintWriter(inputName, "UTF-8");
+				writer.println("Assignment Type: Homework");
+				writer.println("Assignment Name: " + inputName);
+				writer.close();
+			    }
+			    else if (choice.equals("5")) {
+			        Essay input = new Essay();
+
+				System.out.println("What is the name of the assignment");
+				String inputName = scanner.nextLine();
+				input.setName( inputName );
+				PrintWriter writer = new PrintWriter(inputName, "UTF-8");
+				writer.println("Assignment Type: Essay");
+				writer.println("Assignment Name: " + inputName);
+				writer.close();
+			    }
+			    System.out.println("Assignment created.");
+			   
 			}
 			else if (choice.equals("3")) {
 				System.out.println("FEATURE UNDER DEVELOPMENT!");
