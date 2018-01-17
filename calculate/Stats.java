@@ -1,3 +1,4 @@
+package calculate;
 
 public class Stats{
 
@@ -113,7 +114,7 @@ public class Stats{
 	
 
     //returns array of outliers in _array 
-    public static double[] outliers(double[] _array){
+    public static String outliers(double[] _array){
 	double[] retOut;//array to store outlier values
 	int size = 0;//size of retOut
 	
@@ -127,19 +128,30 @@ public class Stats{
 	    if(a > high + bounds || a < low - bounds)
 		size++;
 	}
+
+	if(size == 0)
+	    return "nonexistent";
+	
 	retOut = new double[size];
+	//System.out.println(size);
 
 	//copy all outlier values into retOut
 	int counter = 0;
 	for(double b : _array){
 	    if(b > high + bounds || b < low - bounds){
+		
 		retOut[counter] = b;
+		//System.out.println(b +", "+ (high+bounds)+ ", " + (low-bounds));
 		counter++;
 	    }
 	}
 
-	//return array of outliers
-	return retOut;	
+	//return String of outliers
+	String retStr = "";
+	for(double x : retOut)
+	    retStr+=x + " ";
+
+	return retStr;
     }
 
     

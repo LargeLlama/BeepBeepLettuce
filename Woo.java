@@ -334,10 +334,40 @@ public class Woo {
 				}
 
 				System.out.println("What would you like to calculate?");
-				System.out.println("1. Mean\n2. Max\n3.Minimum\n4. Standard Deviation\n5. Median\n6. 1st Quartile\n7. 3rd Quartile\n8. IQR\n9. Outliers\n10. Histogram");
+				System.out.println("1: Mean\n2: Max\n3:Minimum\n4: Standard Deviation\n5: Median\n6: 1st Quartile\n7: 3rd Quartile\n8: IQR\n9: Outliers\n10: Histogram");
 
+				boolean bool = true;
+				String statChoice = scanner.nextLine();
 
-
+				while(bool){
+				    bool = false;
+				    if(statChoice.equals("1"))
+					System.out.println("The class mean is " + Stats.mean(grades));
+				    else if(statChoice.equals("2"))
+					System.out.println("The class max is " + Stats.max(grades));
+				    else if(statChoice.equals("3"))
+					System.out.println("The class min is " + Stats.min(grades));
+				    else if(statChoice.equals("4"))
+					System.out.println("The class standard deviation is " + Stats.stDev(grades));
+				    else if(statChoice.equals("5"))
+					System.out.println("The class median is " + Stats.median(grades));
+				    else if(statChoice.equals("6"))
+					System.out.println("The class q1 is " + Stats.q1(grades));
+				    else if(statChoice.equals("7"))
+					System.out.println("The class q3 is " + Stats.q3(grades));
+				    else if(statChoice.equals("8"))
+					System.out.println("The class iqr is " + Stats.iqr(grades));
+				    else if(statChoice.equals("9"))
+					System.out.println("The class outliers are " + Stats.outliers(grades));
+				    else if(statChoice.equals("10"))
+					System.out.println("Histogram for class grades:\n" + Stats.histogram(grades));
+				    else{
+					bool = true;
+					System.out.println("Invalid input, type a number 1 through 10!");
+				    }
+				}
+				    
+			       
 			}
 			else if (choice.equals("5")) {
 				System.out.println("Bye Bye " + info.get(0));
@@ -361,7 +391,6 @@ public class Woo {
 	    Login login = new Login("login/parents/parentUsernames.txt");
 
 	    System.out.println("Welcome Parent! Type in your username below, or type EXIT to exit");
-			
 	    String user = scanner.nextLine();
 				
 	    if (user.equals("EXIT")) {
