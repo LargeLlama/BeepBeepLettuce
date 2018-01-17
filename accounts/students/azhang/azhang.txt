@@ -1,15 +1,15 @@
-John
+Andy
 
-Doe
+Zhang
 male
-jdoe1
+azhang
 password
-1234
+8139
 01
-01
+04
 2001
 2019
-85.0
+90
 90
 90
 90

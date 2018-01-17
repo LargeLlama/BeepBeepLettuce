@@ -1,17 +1,17 @@
-John
+Ricky
 
-Doe
+Zou
 male
-jdoe1
+rzou
 password
-1234
+9919
 01
-01
+30
 2001
 2019
+95.0
+90
 85.0
-90
-90
 90
 90
 jsmith
