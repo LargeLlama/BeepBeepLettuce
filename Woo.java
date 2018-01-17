@@ -397,11 +397,8 @@ public class Woo {
 	    }
 			
 	    System.out.println("Login Successful!");
+		System.out.println("CONGRATS! Your child has an 100 average! Bye!");
+		return;
 	}
     }
 }
-		
-	  
-   	
-
-
