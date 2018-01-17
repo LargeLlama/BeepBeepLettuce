@@ -238,20 +238,26 @@ public class Woo {
 				System.out.println("Here are all of your students");
 				System.out.println("Type the number corressponding to their username to change their grade, or type EXIT to go back to the menu");
 				counter = 1;
-
+				
 				for (int i = 7; i < info.size(); i+= 2) {	
 					System.out.println( counter + ". "  + info.get(i));
 					counter ++;
 				}
-
+				
+				ArrayList<String> students = loggedIn.getStudents();
+				ArrayList<String> userNames = new ArrayList<String>();
+				
+				for (int i = 0; i < students.size(); i+=2) {
+					userNames.add(students.get(i));
+				}
 				choice = scanner.nextLine();
 
 				if (isNumeric(choice)) {
 				ArrayList<String> studentInfo = new ArrayList<String>();
 
 				int studentChosen = Integer.parseInt(choice);
-				String studentUser = info.get(studentChosen + 6);
-
+				String studentUser = userNames.get(studentChosen - 1);
+			
 				try {
 					File file = new File("accounts/students/" + studentUser + "/" + studentUser + ".txt");
 					FileReader fr = new FileReader(file);

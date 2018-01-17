@@ -89,7 +89,9 @@ public class Teacher {
 		
 		int location = info.indexOf(studentName);
 		double temp = Double.parseDouble(info.set(location + 1, Double.toString(newGrade)));
-
+		for (int i = 0; i < _students.size(); i++) {
+			_students.set(i, info.get(i + 7));
+		}
 		try {
 			File file = new File("accounts/teachers/" + _user + "/" + _user + ".txt");
 			FileWriter fr = new FileWriter(file);
