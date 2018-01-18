@@ -131,43 +131,6 @@ public class Student {
 		_info = info;
 	}	
 
-	public String setFirstName(String firstName) throws IOException {
-
-		String temp = _firstName;
-		String line = null;
-		ArrayList<String> oldInfo = new ArrayList<String>();
-		
- 		System.out.println(new File("accounts/students/" + _user + "/" + _user + ".txt").isFile());
-		System.out.println("accounts/students/" + _user + "/" + _user + ".txt");
-		//NOT WORKING
-		try {
-			File file = new File("accounts/students/" + _user + "/" + _user + ".txt");
-			FileReader fr = new FileReader(file);
-			BufferedReader br = new BufferedReader(fr);
-
-			while((line = br.readLine()) != null) {
-				oldInfo.add(line);
-			}
-
-			oldInfo.set(0, firstName);
-
-			FileWriter writer = new FileWriter("students/" + _user + "/" + _user + ".txt");
-			
-			for (int i = 0; i < oldInfo.size(); i++) {
-				writer.write(oldInfo.get(i));
-			}
-
-		} catch (FileNotFoundException e) {
-
-			System.out.println("FILE NOT FOUND ERROR");
-		}
-
-		_firstName = firstName;
-		return temp;
-	}
-
-//	public String setLastName(String lastName) {
-//	}
 	public double setGrade(int subject, double newGrade, ArrayList<String> info) throws IOException {
 
 		double temp = Double.parseDouble(info.set((subject + 11), Double.toString(newGrade)));
@@ -194,6 +157,9 @@ public class Student {
 			System.out.println("accounts/students/" + _user + "/" + _user + ".txt");
 		}
 		return temp;
+	}
+	public String getUserName() {
+		return _user;
 	}
 	public double getScienceGrade() {
 		return _scienceGrade;

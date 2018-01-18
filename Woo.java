@@ -142,18 +142,26 @@ public class Woo {
 		} else if (choice.equals("2")) {
 		    System.out.println("\nHere are your assignments! \n");
 
-		    File folder = new File("./assignments/");
-		    System.out.println(folder);
+		    File folder = new File("accounts/students/" + loggedIn.getUserName() + "/assignments/");
 		    File[] listOfFiles = folder.listFiles();
-		    
-		    System.out.println(listOfFiles);
+		   	ArrayList<String> assignments = new ArrayList<String>();
+			
 		    for (int i = 0; i < listOfFiles.length; i++) {
-			if (listOfFiles[i].isFile()) {
-			    System.out.println("File " + listOfFiles[i].getName());
-			} else if (listOfFiles[i].isDirectory()) {
-			    System.out.println("Directory " + listOfFiles[i].getName());
-			}
+				FileReader fr = new FileReader(listOfFiles[i]);
+				BufferedReader assignment = new BufferedReader(fr);
+				
+				String line = null;
+				
+				while ((line = assignment.readLine()) != null) {
+					assignments.add(line);
+				}
 		    }
+			
+			for (int i = 0; i < assignments.size(); i += 4) {
+				System.out.println("\nType: " + assignments.get(i));
+				System.out.println("Name: " + assignments.get(i + 1));
+				System.out.println("Grade: " + assignments.get(i + 3));
+			}
 		    
 		    System.out.println("\nPress ENTER to go back");
 				
@@ -168,8 +176,7 @@ public class Woo {
 		    break;
 
 		} else if (choice.equals("4")) {
-		    System.out.println(loggedIn.setFirstName("Test"));
-					
+		   					
 		    System.out.println("Welcome " + info.get(0) + "! What would you like to do?");
 		    System.out.println("1. View Grades\n2. View Assignments\n3. Logout");
 		    choice = scanner.nextLine();
@@ -348,6 +355,9 @@ public class Woo {
 				    BufferedWriter updatedSFile = new BufferedWriter(f);
 				    updatedSFile.write("Test \n" );
 				    updatedSFile.write(inputName + "\n");
+					updatedSFile.write("false\n");
+					updatedSFile.write("not graded");
+
 				    updatedSFile.close();
 				}
 				System.out.println("Assignment Type: Test");
@@ -371,7 +381,10 @@ public class Woo {
 				    FileWriter f = new FileWriter(sFile);
 				    BufferedWriter updatedSFile = new BufferedWriter(f);
 				    updatedSFile.write("Quiz \n" );
-				    updatedSFile.write(inputName + "\n");
+					updatedSFile.write(inputName + "\n");
+					updatedSFile.write("false\n");
+					updatedSFile.write("not graded");
+
 				    updatedSFile.close();
 				}
 				System.out.println("Assignment Type: Quiz");
@@ -396,6 +409,9 @@ public class Woo {
 				    BufferedWriter updatedSFile = new BufferedWriter(f);
 				    updatedSFile.write("Project \n" );
 				    updatedSFile.write(inputName + "\n");
+					updatedSFile.write("false\n");
+					updatedSFile.write("not graded");
+
 				    updatedSFile.close();
 				}
 				System.out.println("Assignment Type: Project");
@@ -420,6 +436,9 @@ public class Woo {
 				    BufferedWriter updatedSFile = new BufferedWriter(f);
 				    updatedSFile.write("Homework \n" );
 				    updatedSFile.write(inputName + "\n");
+					updatedSFile.write("false\n");
+					updatedSFile.write("not graded");
+
 				    updatedSFile.close();
 				}
 				System.out.println("Assignment Type: Homework");
@@ -444,6 +463,9 @@ public class Woo {
 				    BufferedWriter updatedSFile = new BufferedWriter(f);
 				    updatedSFile.write("Assignment Type: Essay \n" );
 				    updatedSFile.write("Assignment Name: " + inputName);
+					updatedSFile.write("false\n");
+					updatedSFile.write("not graded");
+
 				    updatedSFile.close();
 				}
 				System.out.println("Essay\n");
