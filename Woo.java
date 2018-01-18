@@ -475,7 +475,7 @@ public class Woo {
 			   
 		}
 		else if (choice.equals("3")) {
-		    System.out.println("FEATURE UNDER DEVELOPMENT!");
+		    System.out.println("Just kidding!");
 		}
 		else if (choice.equals("4")) {
 		    System.out.println("Here are all of your students and their grades");
