@@ -1,4 +1,5 @@
 package assignment;
+import java.util.ArrayList;
 
 /***
  *  Assignment Class
@@ -16,7 +17,8 @@ public class Assignment {
     public String name; // name of the assignment
     public String status; // "incomplete" or "complete"
     public double grade; // decimal value of the grade given for assignment
-
+    public String dueDate; // YYYY-MM-DD
+    
     // DEFAULT CONSTRUCTOR
 
     public Assignment() {
@@ -36,6 +38,15 @@ public class Assignment {
 	grade = 100.00;
 
     }
+    
+    public Assignment( String newName, String newDueDate ) {
+
+	name = newName;	
+	status = "incomplete";
+	grade = 100.00;
+	dueDate = newDueDate;
+
+    }
 
     public Assignment( double newGrade ) {
 
@@ -50,7 +61,19 @@ public class Assignment {
 	name = newName;
 	status = "incomplete";
 	grade = newGrade;
+    }
 
+    private ArrayList<String> _info;
+
+    public Assignment(ArrayList<String> info) {
+
+	name = info.get(0);
+	status = info.get(1);
+	grade = Double.parseDouble(info.get(2));;
+	dueDate = info.get(3);
+	
+	_info = info;
+		
     }
 
     // METHODS

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import accounts.*;
 import calculate.*;
 import assignment.*;
+import java.io.File;
 
 public class Woo {
 
@@ -139,7 +140,21 @@ public class Woo {
 		    choice = scanner.nextLine();
 						
 		} else if (choice.equals("2")) {
-		    System.out.println("FEATURE UNDER DEVELOPMENT");
+		    System.out.println("\nHere are your assignments! \n");
+
+		    File folder = new File("./assignments/");
+		    System.out.println(folder);
+		    File[] listOfFiles = folder.listFiles();
+		    
+		    System.out.println(listOfFiles);
+		    for (int i = 0; i < listOfFiles.length; i++) {
+			if (listOfFiles[i].isFile()) {
+			    System.out.println("File " + listOfFiles[i].getName());
+			} else if (listOfFiles[i].isDirectory()) {
+			    System.out.println("Directory " + listOfFiles[i].getName());
+			}
+		    }
+		    
 		    System.out.println("\nPress ENTER to go back");
 				
 		    scanner.nextLine();
@@ -247,7 +262,7 @@ public class Woo {
 				
 				ArrayList<String> students = loggedIn.getStudents();
 				ArrayList<String> userNames = new ArrayList<String>();
-				
+						   
 				for (int i = 0; i < students.size(); i+=2) {
 					userNames.add(students.get(i));
 				}
@@ -292,74 +307,147 @@ public class Woo {
 						loggedIn.changeGrade(newGrade, studentInfo.get(4), info);
 						break;
 					} catch (Exception e) {
-						System.out.println("Invalid input! Try again!");
-						grade = scanner.nextLine();
+					    System.out.println("Invalid input! Try again!");
+					    grade = scanner.nextLine();
 					}
 				}
 				System.out.println("Success!\nReturning to main menu...\n");
-			  }
+				}
 			} else if (choice.equals("2")) {
-				
+
+			    // List of the teacher's students is created
+			    ArrayList<String> students = new ArrayList<String>();
+			    for (int i = 0; i < loggedIn.getStudents().size(); i++) {
+				students.add(loggedIn.getStudents().get(i));
+			    }
+			    ArrayList<String> studentNames = new ArrayList<String>();
+			    for (int i = 0; i < students.size(); i += 2) {
+				studentNames.add(students.get(i));
+			    }
+			    // Beginning of Assignment Creation
 			    System.out.println("What type of assignment are you creating?");
 			    System.out.println("\n1. Test\n2. Quiz\n3. Project\n4. Homework\n5. Essay\n");
+			    //Inputs a number between 1-5
 			    choice = scanner.nextLine();
-			    
 			    if (choice.equals("1")) {
-				System.out.println( "yay" );
+				// Makes new test, asks for a name to be input
 				Test input = new Test();
-
-				System.out.println("What is the name of the assignment");
+				System.out.println("What is the name of the assignment?");
 				String inputName = scanner.nextLine();
 				input.setName( inputName );
-				PrintWriter writer = new PrintWriter(inputName, "UTF-8");
-				writer.println("Assignment Type: Test");
-				writer.println("Assignment Name: " + inputName);
-				writer.close();
-			        //inputName.txt.renameTo(new File("/assignments/" + inputName + ".txt"));
+				// A text file for the assignment is created in the teacher's folder and all their students' folders
+				File file = new File("accounts/teachers/" + user + "/" + inputName + ".txt");
+				FileWriter fr = new FileWriter(file);
+				BufferedWriter updatedFile = new BufferedWriter(fr);
+				updatedFile.write("Test \n" );
+				updatedFile.write(inputName + "\n");
+				updatedFile.close();
+				for (int i = 0; i < studentNames.size(); i +=1) {
+				    File sFile = new File("accounts/students/" + studentNames.get(i) + "/assignments/" + inputName + ".txt");
+				    FileWriter f = new FileWriter(sFile);
+				    BufferedWriter updatedSFile = new BufferedWriter(f);
+				    updatedSFile.write("Test \n" );
+				    updatedSFile.write(inputName + "\n");
+				    updatedSFile.close();
+				}
+				System.out.println("Assignment Type: Test");
+				System.out.println("Assignment Name: " + inputName);
 			    }
 			    else if (choice.equals("2")) {
-			        Quiz input = new Quiz();
-
-				System.out.println("What is the name of the assignment");
+				//Makes a new quiz, asks for a name to be input
+				Quiz input = new Quiz();
+				System.out.println("What is the name of the assignment?");
 				String inputName = scanner.nextLine();
 				input.setName( inputName );
-				PrintWriter writer = new PrintWriter(inputName, "UTF-8");
-				writer.println("Assignment Type: Quiz");
-				writer.println("Assignment Name: " + inputName);
-				writer.close();
+				// A text file for the assignment is created in the teacher's folder and all their students' folders
+				File file = new File("accounts/teachers/" + user + "/" + inputName + ".txt");
+				FileWriter fr = new FileWriter(file);
+				BufferedWriter updatedFile = new BufferedWriter(fr);
+				updatedFile.write("Quiz \n" );
+				updatedFile.write(inputName + "\n");
+				updatedFile.close();
+				for (int i = 0; i < studentNames.size(); i +=1) {
+				    File sFile = new File("accounts/students/" + studentNames.get(i) + "/assignments/" + inputName + ".txt");
+				    FileWriter f = new FileWriter(sFile);
+				    BufferedWriter updatedSFile = new BufferedWriter(f);
+				    updatedSFile.write("Quiz \n" );
+				    updatedSFile.write(inputName + "\n");
+				    updatedSFile.close();
+				}
+				System.out.println("Assignment Type: Quiz");
+				System.out.println("Assignment Name: " + inputName);
 			    }
 			    else if (choice.equals("3")) {
-			        Project input = new Project();
-
-				System.out.println("What is the name of the assignment");
+				//Makes a new project, asks for a name to be input
+				Project input = new Project();
+				System.out.println("What is the name of the assignment?");
 				String inputName = scanner.nextLine();
 				input.setName( inputName );
-				PrintWriter writer = new PrintWriter(inputName, "UTF-8");
-				writer.println("Assignment Type: Project");
-				writer.println("Assignment Name: " + inputName);
-				writer.close();
+				// A text file for the assignment is created in the teacher's folder and all their students' folders
+				File file = new File("accounts/teachers/" + user + "/" + inputName + ".txt");
+				FileWriter fr = new FileWriter(file);
+				BufferedWriter updatedFile = new BufferedWriter(fr);
+				updatedFile.write("Project \n" );
+				updatedFile.write(inputName + "\n");
+				updatedFile.close();
+				for (int i = 0; i < studentNames.size(); i +=1) {
+				    File sFile = new File("accounts/students/" + studentNames.get(i) + "/assignments/" + inputName + ".txt");
+				    FileWriter f = new FileWriter(sFile);
+				    BufferedWriter updatedSFile = new BufferedWriter(f);
+				    updatedSFile.write("Project \n" );
+				    updatedSFile.write(inputName + "\n");
+				    updatedSFile.close();
+				}
+				System.out.println("Assignment Type: Project");
+				System.out.println("Assignment Name: " + inputName);
 			    }
 			    else if (choice.equals("4")) {
-			        Homework input = new Homework();
-
-				System.out.println("What is the name of the assignment");
+				//Makes a new homework, asks for a name to be input
+				Homework input = new Homework();
+				System.out.println("What is the name of the assignment?");
 				String inputName = scanner.nextLine();
 				input.setName( inputName );
-				PrintWriter writer = new PrintWriter(inputName, "UTF-8");
-				writer.println("Assignment Type: Homework");
-				writer.println("Assignment Name: " + inputName);
-				writer.close();
+				// A text file for the assignment is created in the teacher's folder and all their students' folders
+				File file = new File("accounts/teachers/" + user + "/" + inputName + ".txt");
+				FileWriter fr = new FileWriter(file);
+				BufferedWriter updatedFile = new BufferedWriter(fr);
+				updatedFile.write("Homework \n" );
+				updatedFile.write(inputName + "\n");
+				updatedFile.close();
+				for (int i = 0; i < studentNames.size(); i +=1) {
+				    File sFile = new File("accounts/students/" + studentNames.get(i) + "/assignments/" + inputName + ".txt");
+				    FileWriter f = new FileWriter(sFile);
+				    BufferedWriter updatedSFile = new BufferedWriter(f);
+				    updatedSFile.write("Homework \n" );
+				    updatedSFile.write(inputName + "\n");
+				    updatedSFile.close();
+				}
+				System.out.println("Assignment Type: Homework");
+				System.out.println("Assignment Name: " + inputName);
 			    }
 			    else if (choice.equals("5")) {
-			        Essay input = new Essay();
-
-				System.out.println("What is the name of the assignment");
+				//Makes a new essay, asks for a name to be input
+				Essay input = new Essay();
+				System.out.println("What is the name of the assignment?");
 				String inputName = scanner.nextLine();
 				input.setName( inputName );
-				PrintWriter writer = new PrintWriter(inputName, "UTF-8");
-				writer.println("Assignment Type: Essay");
-				writer.println("Assignment Name: " + inputName);
-				writer.close();
+				// A text file for the assignment is created in the teacher's folder and all their students' folders
+				File file = new File("accounts/teachers/" + user + "/" + inputName + ".txt");
+				FileWriter fr = new FileWriter(file);
+				BufferedWriter updatedFile = new BufferedWriter(fr);
+				updatedFile.write("Essay \n" );
+				updatedFile.write(inputName + "\n");
+				updatedFile.close();
+				for (int i = 0; i < studentNames.size(); i +=1) {
+				    File sFile = new File("accounts/students/" + studentNames.get(i) + "/assignments/" + inputName + ".txt");
+				    FileWriter f = new FileWriter(sFile);
+				    BufferedWriter updatedSFile = new BufferedWriter(f);
+				    updatedSFile.write("Assignment Type: Essay \n" );
+				    updatedSFile.write("Assignment Name: " + inputName);
+				    updatedSFile.close();
+				}
+				System.out.println("Essay\n");
+				System.out.println(inputName + "\n");
 			    }
 			    System.out.println("Assignment created.");
 			   
@@ -391,6 +479,7 @@ public class Woo {
 				for (int i = 0; i < students.size(); i += 2) {
 					studentNames.add(students.get(i));
 				}
+				System.out.println(studentNames);
 
 				for (int i = 0; i < grades.length; i++) {
 					System.out.println(studentNames.get(i) + ": " + grades[i]);
@@ -398,7 +487,7 @@ public class Woo {
 				}
 
 				System.out.println("What would you like to calculate?");
-				System.out.println("1: Mean\n2: Max\n3:Minimum\n4: Standard Deviation\n5: Median\n6: 1st Quartile\n7: 3rd Quartile\n8: IQR\n9: Outliers\n10: Histogram");
+				System.out.println("1: Mean\n2: Max\n3: Minimum\n4: Standard Deviation\n5: Median\n6: 1st Quartile\n7: 3rd Quartile\n8: IQR\n9: Outliers\n10: Histogram");
 
 				boolean bool = true;
 				String statChoice = scanner.nextLine();
