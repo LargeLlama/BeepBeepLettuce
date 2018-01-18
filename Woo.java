@@ -475,7 +475,61 @@ public class Woo {
 			   
 		}
 		else if (choice.equals("3")) {
-		    System.out.println("Just kidding!");
+		    System.out.println("Please type the name of the Student");
+		    ArrayList<String> students = new ArrayList<String>();
+		    for (int i = 0; i < loggedIn.getStudents().size(); i++) {
+			students.add(loggedIn.getStudents().get(i));
+		    }
+		    ArrayList<String> studentNames = new ArrayList<String>();
+		    for (int i = 0; i < students.size(); i += 2) {
+			studentNames.add(students.get(i));
+		    }
+		    System.out.println(studentNames);
+		    String studentChoice = scanner.nextLine();
+
+		     System.out.println("Please type the NAME of the assignment you wish to grade.");
+
+		    File folder = new File("accounts/students/" + studentChoice + "/assignments/");
+		    File[] listOfFiles = folder.listFiles();
+		    ArrayList<String> assignments = new ArrayList<String>();
+			
+		    for (int i = 0; i < listOfFiles.length; i++) {
+			FileReader fr = new FileReader(listOfFiles[i]);
+			BufferedReader assignment = new BufferedReader(fr);
+				
+			String line = null;
+				
+			while ((line = assignment.readLine()) != null) {
+			    assignments.add(line);
+			}
+		    }
+			
+		    for (int i = 0; i < assignments.size(); i += 4) {
+			System.out.println("\nType: " + assignments.get(i));
+			System.out.println("Name: " + assignments.get(i + 1));
+			System.out.println("Grade: " + assignments.get(i + 3));
+		    }
+
+		    String fileChoice = scanner.nextLine();
+		    
+		    System.out.println("Please type the grade you wish to assign to this assignment.");
+
+		    String gradeChoice = scanner.nextLine();
+		    
+		    for (int i = 1; i < assignments.size(); i += 4) {
+			if ( assignments.get(i).equals(fileChoice)) {
+			    assignments.set(i+1, "true");
+			    assignments.set(i+2, gradeChoice);
+			
+			}
+		    }
+
+		    for (int i = 0; i < assignments.size(); i += 4) {
+			System.out.println("\nType: " + assignments.get(i));
+			System.out.println("Name: " + assignments.get(i + 1));
+			System.out.println("Grade: " + assignments.get(i + 3));
+		    }
+		    
 		}
 		else if (choice.equals("4")) {
 		    System.out.println("Here are all of your students and their grades");
