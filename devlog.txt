@@ -4,56 +4,47 @@ Rubin Peci
 Kayli Matsuyoshi
 pd01
 ---------------------
-<Project>
+GradeBook
 
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-USAGE:
-* Replace all fields, angle brackets included, with specified info.
-  eg, pd <pd#> --> pd 3
-* Delete these instructions once all teammates understand usage.
-  (from tilde bar above to tilde bar below)
-
-devlog--
-Use keyboard shortcut to jump to end,
- replicate entry template,
- modify appropriately.
-
-zone of reflection--
-Flesh out each category whenever necessary, appropriate.
- Need not be fully filled in until end of project,
- but best done as you go along.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
+A local gradebook that runs inside the terminal!
 
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<Wow, we so BOSS bc...>
-
+- Take input from .txt files and effectively store them
+- Create a login system
+	- Make hidden input for passwords
+- Access stored info from files using ArrayLists 
+- Figure out effective way to store the actual files
+- 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<
-blah blah pesky bug...
-maybe some of these will move into the Obs.Ovrcm section...
->
+- how the HECK do we effectively implement assignments?
+- mass produce a bunch of students to work with
+	- probably need to make a script in a diff language to do this tbh
+- anyway to make this NOT local?
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<wow! oo! etc!...>
+- Java file-handling awfully similar to python file-handling
+- importing self-made classes is pretty easy!
+- packages are useful and handy  
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-We changed ___ to ___ bc...
-<etc>
-<etc>
+ - Login is gonna be it's own class, not an interface implemented by Student
+ - Constructors will take an arraylist as an input rather than a bunch of strings
+ - Woo.java will handle most of the input from files
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<tales of wisdom gained...>
+ - Gotta be careful with your curly braces!
+ - Making a bunch of while(true) loops isn't the smartest/most effective thing
+ - ArrayLists are very useful methods of storing and accessing info
+ - Java is not the best language for file handling, at least when compared to Python
+ - communication is key! if one team member can't understand your code, they need to be brought up to speed
+
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -93,5 +84,26 @@ trio: flowchart/todo
 Selina Zou :: created Parent class
 Rubin Peci :: created FileTest class, and completed testing
 Kayli Matsuyoshi :: created Assignment class
-==============================================================
 
+2018-01-12
+-------------------------------------------------------------
+Rubin Peci :: Work more on FileTest to write to a file and store input from a file
+
+2018-01-15
+-------------------------------------------------------------
+Selina Zou :: Complete Stats.java and Sorts.java 
+Rubin Peci :: Create Woo.java and make a MVP
+Kayli Matsuyoshi :: Create Assignment superclass and work on subclasses
+
+2018-01-16
+-------------------------------------------------------------
+Selina Zou :: Implement Stats.java into Woo.java for Teacher calculation of grades
+Rubin Peci :: Add test students and fix many bugs regarding Student and Teacher logins and viewing of grades
+Kayli Matsuyoshi :: Complete the creation of the Assignment subclasses and organize them into the folder
+
+2018-01-17
+--------------------------------------------------------------
+Selina Zou :: Update flowchart and UML to reflect new code
+Rubin Peci :: Fix bugs caused by adding the Stats.java and assignments package 
+Kayli Matsuyowhsi :: Implement creating Assignments and viewing Assignments for Teacher and Student, respectively
+==============================================================
