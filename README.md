@@ -12,10 +12,31 @@ Teachers will get the most options, as they can add students and their log in in
 Students will be able to view their grades and change the email and password they use to log on, as well as leave comments for their teacher  
 
 Parents will be able to login and see that their child has an 100 in every class, regardless of actual performace.  
-
-#----------HOW TO RUN THE PROGRAM----------  
-You can simply compile Woo.java and run the file with the following commands  
-` $ javac Woo.java  
-` $ java Woo  
   
-Yo then will pick whether you are a student, teacher, or parent, and enter in your login info, and menu prompts will direct you to the various options you can choose!
+# ----------HOW TO RUN THE PROGRAM----------  
+You can simply compile Woo.java and run the file with the following commands  
+``` $ javac Woo.java  
+$ java Woo  
+```
+  
+You then will pick whether you are a student, teacher, or parent, and enter in your login info, and menu prompts will direct you to the various options you can choose!
+
+##### Current Features include...  
+* Login System!  
+	* Student
+	* Teacher
+	* Parent 
+
+* Student
+	* View grades
+	* View Assignments
+* Teacher
+	* Change grades
+	* View grades
+	* Calculate averages, mean, standard deviation, etc. for a class
+	* Create assignments
+	* Mark as complete
+* Parent
+	* View grades, which always show up as 100
+
+
