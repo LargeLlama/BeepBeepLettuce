@@ -10,6 +10,7 @@
 <br> Parents will be able to login and see that their child has an 100 in every class, regardless of actual performace.
 
 <center><h2>----------HOW TO RUN THE PROGRAM----------</h2></center>
-<br> Not possible yet, but when it is ready to be run, you can simply compile Woo.java and run the file with the following commands
-<ul> <li> $ javac Woo.java </li> <li> $ java Woo </li></ul>
+<br> You can simply compile Woo.java and run the file with the following commands
+# $ javac Woo.java 
+# $ java Woo 
 <br> You then will pick whether you are a student, teacher, or parent, and enter in your login info, and menu prompts will direct you to the various options you can choose!
